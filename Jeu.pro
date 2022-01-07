@@ -15,7 +15,9 @@ SOURCES += \
     environnement/plateau.cpp \
     main.cpp \
     mainwindow.cpp \
-    miniJeux/rapidite.cpp
+    miniJeux/famillemot.cpp \
+    miniJeux/rapidite.cpp \
+    miniJeux/vitessemot.cpp
 
 HEADERS += \
     environnement/carte.h \
@@ -23,7 +25,9 @@ HEADERS += \
     environnement/paquet.h \
     environnement/plateau.h \
     mainwindow.h \
-    miniJeux/rapidite.h
+    miniJeux/famillemot.h \
+    miniJeux/rapidite.h \
+    miniJeux/vitessemot.h
 
 FORMS += \
     mainwindow.ui
