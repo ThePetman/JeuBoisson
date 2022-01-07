@@ -5,6 +5,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <vector>
+#include <ctime>
 
 class Paquet
 {
@@ -20,8 +21,13 @@ public:
     std::vector<Carte> getPaquet();
     void setCarteCourante(Carte c);
 
-    void choisisCarte();
+    void melangePaquet();
+    void tireCarte();
     void supprimeCarte();
+
+    void ajouteCarte(Carte c);
+
+    void affiche();
 };
 
 #endif // PAQUET_H

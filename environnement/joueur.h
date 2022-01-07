@@ -24,6 +24,9 @@ class Joueur
 
       void incrementeGorgees();
 
+      void affiche();
+
+
 
 
 

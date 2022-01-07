@@ -22,6 +22,7 @@ public:
     void setMiniJeu(MiniJeu m);
 
     void initialiseMiniJeu();
+    void affiche();
 
 };
 
