@@ -2,6 +2,17 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QLineEdit>
+#include <QLabel>
+#include <QMenuBar>
+#include <QMenu>
+#include <QAction>
+#include <QSizePolicy>
+#include <QFormLayout>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +27,25 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    QWidget* centre;
+    QWidget* gauche;
+    QWidget* droite;
+    QWidget* haut;
+    QWidget* milieu;
+    QHBoxLayout* hboxlayout;
+    QVBoxLayout* vboxlayout;
+    QFormLayout* formlayout;
+    QPushButton* jouer;
+    QPushButton* ajouter;
+    QLineEdit* nom;
+    QLineEdit* sexe;
+
+    void init_components(void);
+    void init_layouts(void);
+
+
+
+
+
 };
 #endif // MAINWINDOW_H

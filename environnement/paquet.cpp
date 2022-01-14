@@ -3,7 +3,7 @@
 
 Paquet::Paquet()
 {
-    this->nbCartes = 54;
+
 
 }
 

@@ -7,10 +7,10 @@
 
 int main(int argc, char *argv[])
 {
-//    QApplication a(argc, argv);
-//    MainWindow w;
-//    w.show();
-//    return a.exec();
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 
 //    Paquet p = Paquet();
 //    p.ajouteCarte(Carte(1,"pique"));
@@ -31,10 +31,10 @@ int main(int argc, char *argv[])
 //    std::cout<<"Paquet melangé après 1er tirage :"<<std::endl;
 //    p.affiche();
 
-    Joueur j1 = Joueur("Adrien",Homme);
-    Joueur j2 = Joueur("Leom",Femme);
-    j1.affiche();
-    j2.affiche();
+//    Joueur j1 = Joueur("Adrien",Homme);
+//    Joueur j2 = Joueur("Leom",Femme);
+//    j1.affiche();
+//    j2.affiche();
 
 
 
