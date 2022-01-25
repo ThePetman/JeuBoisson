@@ -10,7 +10,7 @@
 class Plateau
 {
 private:
-    Paquet paquet;
+    Paquet* paquet;
     int nbJoueur;
     std::vector<Joueur> listeJoueurs;
     std::vector<Joueur> listeBuveurs;
@@ -18,7 +18,7 @@ private:
 
 public:
     Plateau();
-    Paquet getPaquet();
+    Paquet* getPaquet();
     int getNbJoueur();
     std::vector<Joueur> getListeJoueurs();
     std::vector<Joueur> getListeBuveurs();

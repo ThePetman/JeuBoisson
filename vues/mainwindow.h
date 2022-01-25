@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "environnement/plateau.h"
+#include "vues/gamewindow.h"
 
 #include <QMainWindow>
 #include <QHBoxLayout>
@@ -28,9 +29,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-     Plateau getPlateau(void);
-Plateau* plateau;
+     Plateau* getPlateau(void);
+     Plateau* plateau;
      void affiche_joueurs(void);
+     GameWindow* g;
+     void init_gameWindow(void);
+
 
 private:
     QWidget* centre;

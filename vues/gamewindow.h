@@ -1,6 +1,8 @@
 #ifndef GAMEWINDOW_H
 #define GAMEWINDOW_H
 
+#include "environnement/plateau.h"
+
 #include <QMainWindow>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -12,6 +14,7 @@
 #include <QAction>
 #include <QSizePolicy>
 #include <QFormLayout>
+#include <QGridLayout>
 
 
   class GameWindow : public QMainWindow
@@ -21,6 +24,9 @@
     public:
     GameWindow(QWidget *parent = nullptr);
     ~GameWindow();
+    Plateau* plateau;
+    void init_joueurs(void);
+    void init_paquet(void);
 
   private:
     QWidget* centre;
@@ -32,9 +38,12 @@
     QLabel* infoJeu;
     QVBoxLayout* vboxlayout;
     QHBoxLayout* hboxlayout;
+    QGridLayout* gridlayout;
 
     void init_components(void);
     void init_layouts(void);
+
+
 
 
 

@@ -50,6 +50,7 @@ void Paquet::supprimeCarte(){
 }
 
 void Paquet::ajouteCarte(Carte c){
+
     this->paquet.push_back(c);
 
 

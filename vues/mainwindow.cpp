@@ -91,10 +91,11 @@ void MainWindow::affiche_joueurs(){
     for (int i=0;i<taille ;i++ ) {
         QWidget* widget = new QWidget();
         QVBoxLayout* layout = new QVBoxLayout();
-std::cout<<"test"<<std::endl;
+
 //        QIcon* icon = new QIcon("joueurs.png");
 //        layout->add
-        QLabel* titre = new QLabel("Joueur 1");
+        std::string numero = "Joueur " + std::to_string(i+1);
+        QLabel* titre = new QLabel(QString::fromStdString(numero));
         layout->addWidget(titre);
         QLabel* nom = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs().at(i).getNom()));
         layout->addWidget(nom);
@@ -102,20 +103,26 @@ std::cout<<"test"<<std::endl;
         layout->addWidget(sexe);
         widget->setLayout(layout);
         widget->setStyleSheet("background-color : red");
-
-        grid->addWidget(widget,i,i);
-
-
-
-
+        if(i<3){
+            grid->addWidget(widget,0,i);
+        }else{
+            grid->addWidget(widget,1,i-3);
+        }
     }
+}
 
+void MainWindow::init_gameWindow(){
+    this->g = new GameWindow();
+    g->plateau = this->getPlateau();
+    g->init_joueurs();
+    g->init_paquet();
+    g->show();
 
 }
 
-//Plateau* MainWindow::getPlateau(){
-//    return this->plateau;
-//}
+Plateau* MainWindow::getPlateau(){
+    return this->plateau;
+}
 
 MainWindow::~MainWindow(){
 

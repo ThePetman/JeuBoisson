@@ -4,8 +4,11 @@ GameWindow::GameWindow(QWidget *parent): QMainWindow(parent)
 {
     this->setWindowTitle("Jeu");
     this->setGeometry(200,200,800,600);
+
     this->init_components();
     this->init_layouts();
+
+
 }
 
 void GameWindow::init_components(){
@@ -46,6 +49,43 @@ void GameWindow::init_layouts(){
     this->hboxlayout->addWidget(this->tirer);
     this->hboxlayout->addWidget(this->lancer);
     this->bas->setLayout(this->hboxlayout);
+
+}
+
+void GameWindow::init_joueurs(){
+    this->gridlayout = new QGridLayout();
+    this->haut->setLayout(gridlayout);
+    int taille = this->plateau->getListeJoueurs().size();
+    for(int i =0; i<taille;i++){
+        QWidget* widget = new QWidget();
+        QVBoxLayout* layout = new QVBoxLayout();
+
+//        QIcon* icon = new QIcon("joueurs.png");
+//        layout->add
+        std::string numero = "Joueur " + std::to_string(i+1);
+        QLabel* titre = new QLabel(QString::fromStdString(numero));
+        layout->addWidget(titre);
+        QLabel* nom = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs().at(i).getNom()));
+        layout->addWidget(nom);
+        QLabel* sexe = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs().at(i).stdGenre()));
+        layout->addWidget(sexe);
+        widget->setLayout(layout);
+        widget->setStyleSheet("background-color : red");
+        gridlayout->addWidget(widget,0,i);
+    }
+}
+void GameWindow::init_paquet(){
+
+    std::cout<<"test"<<std::endl;
+    for(int i =1;i<14;i++){
+        this->plateau->getPaquet()->ajouteCarte(Carte(i,"trefle"));
+        this->plateau->getPaquet()->ajouteCarte(Carte(i,"pique"));
+        this->plateau->getPaquet()->ajouteCarte(Carte(i,"coeur"));
+        this->plateau->getPaquet()->ajouteCarte(Carte(i,"carreau"));
+    }
+    this->plateau->getPaquet()->melangePaquet();
+    this->plateau->getPaquet()->affiche();
+
 
 }
 

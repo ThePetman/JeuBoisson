@@ -13,15 +13,21 @@ int main(int argc, char *argv[])
     MainWindow w = MainWindow();
     Joueur j1 = Joueur("Adrien",Homme);
     Joueur j2 = Joueur("Leom",Femme);
+    Joueur j3 = Joueur("Gaoul",Homme);
+    Joueur j4 = Joueur("Amo",Homme);
     j1.affiche();
     j2.affiche();
     w.plateau->ajouteJoueur(j1);
 
     w.plateau->ajouteJoueur(j2);
+    w.plateau->ajouteJoueur(j3);
+    w.plateau->ajouteJoueur(j4);
 
     w.affiche_joueurs();
 
     w.show();
+    w.init_gameWindow();
+
 //    GameWindow g;
 //    g.show();
 

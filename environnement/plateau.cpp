@@ -2,10 +2,10 @@
 
 Plateau::Plateau()
 {
-    this->paquet=Paquet();
+    this->paquet= new Paquet();
 }
 
-Paquet Plateau::getPaquet(){
+Paquet* Plateau::getPaquet(){
     return this->paquet;
 }
 
@@ -27,5 +27,5 @@ void Plateau::ajouteJoueur(Joueur j){
 }
 
 void Plateau::tireCarte(){
-    this->paquet.tireCarte();
+    this->paquet->tireCarte();
 }
