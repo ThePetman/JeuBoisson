@@ -1,4 +1,5 @@
-#include "mainwindow.h"
+#include "vues\mainwindow.h"
+#include "vues\gamewindow.h"
 #include "environnement\paquet.h"
 #include "environnement\carte.h"
 #include "environnement/joueur.h"
@@ -8,8 +9,22 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+
+    MainWindow w = MainWindow();
+    Joueur j1 = Joueur("Adrien",Homme);
+    Joueur j2 = Joueur("Leom",Femme);
+    j1.affiche();
+    j2.affiche();
+    w.plateau->ajouteJoueur(j1);
+
+    w.plateau->ajouteJoueur(j2);
+
+    w.affiche_joueurs();
+
     w.show();
+//    GameWindow g;
+//    g.show();
+
     return a.exec();
 
 //    Paquet p = Paquet();

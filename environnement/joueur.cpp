@@ -24,6 +24,14 @@ int Joueur::getGorgees(){
     return this->gorgees;
 }
 
+std::string Joueur::stdGenre(){
+    switch(this->getGenre()){
+    case Homme:
+        return "Homme";
+    case Femme:
+        return "Femme";
+    }
+}
 void Joueur::incrementeGorgees(){
     this->gorgees++;
 }

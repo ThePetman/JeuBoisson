@@ -22,6 +22,7 @@ std::vector<Joueur> Plateau::getListeJoueurs(){
 }
 
 void Plateau::ajouteJoueur(Joueur j){
+
     this->listeJoueurs.push_back(j);
 }
 

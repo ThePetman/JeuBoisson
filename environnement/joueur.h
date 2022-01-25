@@ -16,6 +16,7 @@ class Joueur
       Joueur(std::string n, Sexe s);
       Joueur();
       std::string getNom();
+      std::string stdGenre();
       Sexe getGenre();
       int getGorgees();
       void setNom(std::string n);

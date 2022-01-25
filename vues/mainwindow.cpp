@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     this->setGeometry(100,100,800,600);
     this->init_components();
     this->init_layouts();
+    this->plateau = new Plateau();
 }
 
 void MainWindow::init_components(void){
@@ -80,6 +81,41 @@ void MainWindow::init_layouts(void)
 
 
 }
+
+void MainWindow::affiche_joueurs(){
+
+    int taille = this->plateau->getListeJoueurs().size();
+    std::cout<<taille<<std::endl;
+    this->grid= new QGridLayout();
+    this->haut->setLayout(this->grid);
+    for (int i=0;i<taille ;i++ ) {
+        QWidget* widget = new QWidget();
+        QVBoxLayout* layout = new QVBoxLayout();
+std::cout<<"test"<<std::endl;
+//        QIcon* icon = new QIcon("joueurs.png");
+//        layout->add
+        QLabel* titre = new QLabel("Joueur 1");
+        layout->addWidget(titre);
+        QLabel* nom = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs().at(i).getNom()));
+        layout->addWidget(nom);
+        QLabel* sexe = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs().at(i).stdGenre()));
+        layout->addWidget(sexe);
+        widget->setLayout(layout);
+        widget->setStyleSheet("background-color : red");
+
+        grid->addWidget(widget,i,i);
+
+
+
+
+    }
+
+
+}
+
+//Plateau* MainWindow::getPlateau(){
+//    return this->plateau;
+//}
 
 MainWindow::~MainWindow(){
 

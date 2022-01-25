@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "environnement/plateau.h"
+
 #include <QMainWindow>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -12,11 +14,12 @@
 #include <QAction>
 #include <QSizePolicy>
 #include <QFormLayout>
+#include <QGridLayout>
+#include <QString>
+#include <QIcon>
 
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+
 
 class MainWindow : public QMainWindow
 {
@@ -25,6 +28,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+     Plateau getPlateau(void);
+Plateau* plateau;
+     void affiche_joueurs(void);
 
 private:
     QWidget* centre;
@@ -40,8 +46,12 @@ private:
     QLineEdit* nom;
     QLineEdit* sexe;
 
+    QGridLayout* grid;
+
     void init_components(void);
     void init_layouts(void);
+
+
 
 
 
