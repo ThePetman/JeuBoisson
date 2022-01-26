@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     this->setGeometry(100,100,800,600);
     this->init_components();
     this->init_layouts();
+    this->init_slots();
     this->plateau = new Plateau();
 }
 
@@ -27,7 +28,9 @@ void MainWindow::init_components(void){
     QSize BUTTON_SIZE = QSize(172, 22);
     this->ajouter->setFixedSize(BUTTON_SIZE);
     this->nom = new QLineEdit();
-    this->sexe = new QLineEdit();
+    this->sexe = new QComboBox();
+    this->sexe->addItem("Homme");
+    this->sexe->addItem("Femme");
 
 }
 
@@ -76,18 +79,36 @@ void MainWindow::init_layouts(void)
 
     this->milieu->setLayout(this->formlayout);
 
+    this->grid= new QGridLayout();
+    this->haut->setLayout(this->grid);
+
+    this->vboxlayoutcartes = new QVBoxLayout();
+    this->gauche->setLayout(this->vboxlayoutcartes);
 
 
 
 
+
+}
+void MainWindow::init_cartes(){
+    for(int i=0;i<4;i++){
+        for(int j =0;j<13;j++){
+
+        }
+    }
+}
+
+
+void MainWindow::init_slots(){
+    connect(this->jouer,SIGNAL(clicked()),this,SLOT(init_gameWindow()));
+    connect(this->ajouter,SIGNAL(clicked()),this,SLOT(ajoute_joueur()));
 }
 
 void MainWindow::affiche_joueurs(){
 
     int taille = this->plateau->getListeJoueurs().size();
     std::cout<<taille<<std::endl;
-    this->grid= new QGridLayout();
-    this->haut->setLayout(this->grid);
+
     for (int i=0;i<taille ;i++ ) {
         QWidget* widget = new QWidget();
         QVBoxLayout* layout = new QVBoxLayout();
@@ -112,12 +133,26 @@ void MainWindow::affiche_joueurs(){
 }
 
 void MainWindow::init_gameWindow(){
+    if(this->getPlateau()->getListeJoueurs().size()<2)
+        return;
     this->g = new GameWindow();
     g->plateau = this->getPlateau();
     g->init_joueurs();
     g->init_paquet();
     g->show();
 
+}
+
+void MainWindow::ajoute_joueur(){
+    if(this->nom->text().isEmpty()or this->getPlateau()->getListeJoueurs().size()==6)
+        return;
+    Sexe genre;
+    if (this->sexe->currentIndex()==0)
+         genre = Homme;
+    else
+         genre = Femme;
+    this->getPlateau()->ajouteJoueur( Joueur(this->nom->text().toStdString(),genre) );
+    this->affiche_joueurs();
 }
 
 Plateau* MainWindow::getPlateau(){

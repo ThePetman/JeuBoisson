@@ -42,7 +42,10 @@ void Paquet::melangePaquet(){
 }
 
 void Paquet::tireCarte(){
-    this->carteCourante=paquet.back();
+    this->setCarteCourante(this->paquet.back());
+    this->supprimeCarte();
+     std::cout<<"carte tirée : "<<std::endl;
+     this->getCarteCourante().affiche();
 }
 
 void Paquet::supprimeCarte(){

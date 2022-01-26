@@ -7,6 +7,7 @@ GameWindow::GameWindow(QWidget *parent): QMainWindow(parent)
 
     this->init_components();
     this->init_layouts();
+    this->init_slots();
 
 
 }
@@ -17,6 +18,7 @@ void GameWindow::init_components(){
     haut->setStyleSheet("background-color : yellow");
     this->milieu = new QWidget();
     milieu->setStyleSheet("background-color : red");
+    this->carte = new QLabel();
     this->bas = new QWidget();
     bas->setStyleSheet("background-color : green");
 
@@ -36,7 +38,9 @@ void GameWindow::init_layouts(){
     QSizePolicy milieu(QSizePolicy::Preferred, QSizePolicy::Preferred);
     milieu.setVerticalStretch(3);
     this->milieu->setSizePolicy(milieu);
-    this->vboxlayout->addWidget(this->milieu);
+    this->carte->setSizePolicy(milieu);
+    this->vboxlayout->addWidget(this->carte);
+
     QSizePolicy bas(QSizePolicy::Preferred, QSizePolicy::Preferred);
     bas.setVerticalStretch(1);
     this->bas->setSizePolicy(bas);
@@ -50,6 +54,10 @@ void GameWindow::init_layouts(){
     this->hboxlayout->addWidget(this->lancer);
     this->bas->setLayout(this->hboxlayout);
 
+}
+
+void GameWindow::init_slots(){
+    connect(this->tirer, SIGNAL(clicked()),this,SLOT(choisir_carte()));
 }
 
 void GameWindow::init_joueurs(){
@@ -75,16 +83,37 @@ void GameWindow::init_joueurs(){
     }
 }
 void GameWindow::init_paquet(){
-
-    std::cout<<"test"<<std::endl;
-    for(int i =1;i<14;i++){
-        this->plateau->getPaquet()->ajouteCarte(Carte(i,"trefle"));
-        this->plateau->getPaquet()->ajouteCarte(Carte(i,"pique"));
-        this->plateau->getPaquet()->ajouteCarte(Carte(i,"coeur"));
-        this->plateau->getPaquet()->ajouteCarte(Carte(i,"carreau"));
+    QFile file("../Jeu/JeuBoisson/environnement/cartes.txt");
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+    QTextStream in(&file);
+    while(!in.atEnd()){
+        QString line = in.readLine();
+        QStringList list = line.split(";");
+        this->plateau->getPaquet()->ajouteCarte(Carte(list[0].toInt(),list[1].toStdString()));
     }
+    file.close();
+
+
+
+//    std::cout<<"test"<<std::endl;
+//    for(int i =1;i<14;i++){
+//        this->plateau->getPaquet()->ajouteCarte(Carte(i,"trefle"));
+//        this->plateau->getPaquet()->ajouteCarte(Carte(i,"pique"));
+//        this->plateau->getPaquet()->ajouteCarte(Carte(i,"coeur"));
+//        this->plateau->getPaquet()->ajouteCarte(Carte(i,"carreau"));
+//    }
     this->plateau->getPaquet()->melangePaquet();
     this->plateau->getPaquet()->affiche();
+
+
+}
+
+void GameWindow::choisir_carte(){
+
+    this->plateau->getPaquet()->tireCarte();
+    std::string carte = std::to_string(this->plateau->getPaquet()->getCarteCourante().getValeur()) +" de "+this->plateau->getPaquet()->getCarteCourante().getForme();
+    this->carte->setText(QString::fromStdString(carte ));
 
 
 }

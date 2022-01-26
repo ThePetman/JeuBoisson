@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdio.h>
 
+
 typedef enum {Homme,Femme} Sexe;
 
 class Joueur
