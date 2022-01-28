@@ -18,6 +18,7 @@
 #include <QGridLayout>
 #include <QString>
 #include <QIcon>
+#include <QComboBox>
 
 
 
@@ -33,7 +34,7 @@ public:
      Plateau* plateau;
      void affiche_joueurs(void);
      GameWindow* g;
-     void init_gameWindow(void);
+
 
 
 private:
@@ -44,16 +45,24 @@ private:
     QWidget* milieu;
     QHBoxLayout* hboxlayout;
     QVBoxLayout* vboxlayout;
+    QVBoxLayout* vboxlayoutcartes;
     QFormLayout* formlayout;
     QPushButton* jouer;
     QPushButton* ajouter;
     QLineEdit* nom;
-    QLineEdit* sexe;
+    QComboBox* sexe;
 
     QGridLayout* grid;
 
     void init_components(void);
     void init_layouts(void);
+    void init_slots(void);
+
+    void init_cartes(void);
+
+public slots:
+    void init_gameWindow(void);
+    void ajoute_joueur(void);
 
 
 

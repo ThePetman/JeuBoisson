@@ -15,6 +15,8 @@
 #include <QSizePolicy>
 #include <QFormLayout>
 #include <QGridLayout>
+#include <QString>
+#include <QFile>
 
 
   class GameWindow : public QMainWindow
@@ -28,6 +30,7 @@
     void init_joueurs(void);
     void init_paquet(void);
 
+
   private:
     QWidget* centre;
     QWidget* haut;
@@ -36,12 +39,17 @@
     QPushButton* tirer;
     QPushButton* lancer ;
     QLabel* infoJeu;
+    QLabel* carte;
     QVBoxLayout* vboxlayout;
     QHBoxLayout* hboxlayout;
     QGridLayout* gridlayout;
 
     void init_components(void);
     void init_layouts(void);
+    void init_slots(void);
+
+  public slots:
+    void choisir_carte(void);
 
 
 
