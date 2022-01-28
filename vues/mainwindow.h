@@ -40,17 +40,23 @@ public:
 private:
     QWidget* centre;
     QWidget* gauche;
+    QWidget* gauche2;
+    QWidget* gauche1;
     QWidget* droite;
     QWidget* haut;
     QWidget* milieu;
     QHBoxLayout* hboxlayout;
+    QHBoxLayout* hboxlayoutcartes;
     QVBoxLayout* vboxlayout;
     QVBoxLayout* vboxlayoutcartes;
+    QFormLayout* layoutcartes1;
+    QFormLayout* layoutcartes2;
     QFormLayout* formlayout;
     QPushButton* jouer;
     QPushButton* ajouter;
     QLineEdit* nom;
     QComboBox* sexe;
+
 
     QGridLayout* grid;
 
@@ -58,7 +64,7 @@ private:
     void init_layouts(void);
     void init_slots(void);
 
-    void init_cartes(void);
+
 
 public slots:
     void init_gameWindow(void);

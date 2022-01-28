@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     this->init_components();
     this->init_layouts();
     this->init_slots();
+
     this->plateau = new Plateau();
 }
 
@@ -18,6 +19,10 @@ void MainWindow::init_components(void){
     droite->setStyleSheet("background-color : yellow");
     this->gauche = new QWidget();
     gauche->setStyleSheet("background-color : red");
+    this->gauche1 = new QWidget();
+    gauche1->setStyleSheet("background-color : white");
+    this->gauche2 = new QWidget();
+    gauche2->setStyleSheet("background-color : white");
     this->haut = new QWidget();
     haut->setStyleSheet("background-color : pink");
     this->milieu = new QWidget();
@@ -31,6 +36,7 @@ void MainWindow::init_components(void){
     this->sexe = new QComboBox();
     this->sexe->addItem("Homme");
     this->sexe->addItem("Femme");
+
 
 }
 
@@ -82,21 +88,58 @@ void MainWindow::init_layouts(void)
     this->grid= new QGridLayout();
     this->haut->setLayout(this->grid);
 
-    this->vboxlayoutcartes = new QVBoxLayout();
-    this->gauche->setLayout(this->vboxlayoutcartes);
+    this->hboxlayoutcartes = new QHBoxLayout();
+    QSizePolicy gauche1(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    gauche1.setHorizontalStretch(1);
+    this->gauche1->setSizePolicy(gauche1);
+    this->hboxlayoutcartes->addWidget(this->gauche1);
+    QSizePolicy gauche2(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    gauche2.setHorizontalStretch(1);
+    this->gauche2->setSizePolicy(gauche2);
+    this->hboxlayoutcartes->addWidget(this->gauche2);
+    this->gauche->setLayout(this->hboxlayoutcartes);
 
-
-
-
-
+    this->layoutcartes1 = new QFormLayout();
+    this->gauche1->setLayout(this->layoutcartes1);
+    this->layoutcartes2 = new QFormLayout();
+    this->gauche2->setLayout(this->layoutcartes2);
 }
-void MainWindow::init_cartes(){
+/*void MainWindow::init_cartes(){
     for(int i=0;i<4;i++){
-        for(int j =0;j<13;j++){
+        for(int j =1;j<14;j++){
+            QString valeur;
+            QComboBox* minijeu = new QComboBox();
+            minijeu->addItem("None");
+            minijeu->addItem("1");
+            minijeu->addItem("2");
+            minijeu->addItem("3");
+            minijeu->addItem("4");
+            minijeu->addItem("5");
+            minijeu->addItem("6");
 
+            switch(i){
+            case 0:
+                valeur = QString::number(j) + " de pique";
+                this->layoutcartes1->addRow(valeur,minijeu);
+                break;
+            case 1:
+                valeur = QString::number(j) + " de coeur";
+                this->layoutcartes1->addRow(valeur,minijeu);
+                break;
+            case 2:
+                valeur = QString::number(j) + " de trefle";
+                this->layoutcartes2->addRow(valeur,minijeu);
+                break;
+            case 3:
+                valeur = QString::number(j) + " de carreau";
+                this->layoutcartes2->addRow(valeur,minijeu);
+                break;
+            }
         }
     }
-}
+
+
+}*/
 
 
 void MainWindow::init_slots(){
