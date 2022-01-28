@@ -18,8 +18,7 @@ SOURCES += \
     vues/mainwindow.cpp \
     miniJeux/famillemot.cpp \
     miniJeux/rapidite.cpp \
-    miniJeux/vitessemot.cpp \
-    vues/settingwindow.cpp
+    miniJeux/vitessemot.cpp
 
 HEADERS += \
     environnement/carte.h \
@@ -30,8 +29,7 @@ HEADERS += \
     vues/mainwindow.h \
     miniJeux/famillemot.h \
     miniJeux/rapidite.h \
-    miniJeux/vitessemot.h \
-    vues/settingwindow.h
+    miniJeux/vitessemot.h
 
 FORMS += \
     mainwindow.ui
