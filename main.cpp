@@ -1,31 +1,18 @@
-#include "vues\mainwindow.h"
-#include "vues\gamewindow.h"
+#include "mainwindow.h"
 #include "environnement\paquet.h"
 #include "environnement\carte.h"
 #include "environnement/joueur.h"
+#include "miniJeux/rapidite.h"
 
 #include <QApplication>
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
 
-    MainWindow w = MainWindow();
-
-
-
-
-
-
-
-    w.show();
-    //w.init_gameWindow();
-    //w.g->choisir_carte();
-
-//    GameWindow g;
-//    g.show();
-
-    return a.exec();
+//int main(int argc, char *argv[])
+//{
+//    QApplication a(argc, argv);
+//    MainWindow w;
+//    w.show();
+//    return a.exec();
 
 //    Paquet p = Paquet();
 //    p.ajouteCarte(Carte(1,"pique"));
@@ -50,7 +37,6 @@ int main(int argc, char *argv[])
 //    Joueur j2 = Joueur("Leom",Femme);
 //    j1.affiche();
 //    j2.affiche();
-
 
 
     return 0;
