@@ -37,6 +37,35 @@ void MainWindow::init_components(void){
     this->sexe->addItem("Homme");
     this->sexe->addItem("Femme");
 
+    this->cvaleur = new QComboBox();
+    this->cvaleur->addItem("1");
+    this->cvaleur->addItem("2");
+    this->cvaleur->addItem("3");
+    this->cvaleur->addItem("4");
+    this->cvaleur->addItem("5");
+    this->cvaleur->addItem("6");
+    this->cvaleur->addItem("7");
+    this->cvaleur->addItem("8");
+    this->cvaleur->addItem("9");
+    this->cvaleur->addItem("10");
+    this->cvaleur->addItem("11");
+    this->cvaleur->addItem("12");
+    this->cvaleur->addItem("13");
+
+    this->cforme = new QComboBox();
+    this->cforme->addItem("pique");
+    this->cforme->addItem("coeur");
+    this->cforme->addItem("trefle");
+    this->cforme->addItem("carreau");
+
+    this->cminijeu = new QComboBox();
+    this->cminijeu->addItem("none");
+    this->cminijeu->addItem("1");
+    this->cminijeu->addItem("2");
+    this->cminijeu->addItem("3");
+
+     this->modifier = new QPushButton("Modifier la carte");
+
 
 }
 
@@ -88,21 +117,25 @@ void MainWindow::init_layouts(void)
     this->grid= new QGridLayout();
     this->haut->setLayout(this->grid);
 
-    this->hboxlayoutcartes = new QHBoxLayout();
+    this->vboxlayoutcartes = new QVBoxLayout();
     QSizePolicy gauche1(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    gauche1.setHorizontalStretch(1);
+    gauche1.setVerticalStretch(2);
     this->gauche1->setSizePolicy(gauche1);
-    this->hboxlayoutcartes->addWidget(this->gauche1);
+    this->vboxlayoutcartes->addWidget(this->gauche1);
     QSizePolicy gauche2(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    gauche2.setHorizontalStretch(1);
+    gauche2.setVerticalStretch(1);
     this->gauche2->setSizePolicy(gauche2);
-    this->hboxlayoutcartes->addWidget(this->gauche2);
-    this->gauche->setLayout(this->hboxlayoutcartes);
+    this->vboxlayoutcartes->addWidget(this->gauche2);
+    this->gauche->setLayout(this->vboxlayoutcartes);
 
-    this->layoutcartes1 = new QFormLayout();
-    this->gauche1->setLayout(this->layoutcartes1);
-    this->layoutcartes2 = new QFormLayout();
-    this->gauche2->setLayout(this->layoutcartes2);
+    this->hboxlayoutcartes=new QHBoxLayout();
+    this->hboxlayoutcartes->addWidget(this->cvaleur);
+    this->hboxlayoutcartes->addWidget(this->cforme);
+    this->hboxlayoutcartes->addWidget(this->cminijeu);
+    this->hboxlayoutcartes->addWidget(this->modifier);
+    this->gauche2->setLayout(this->hboxlayoutcartes);
+
+
 }
 /*void MainWindow::init_cartes(){
     for(int i=0;i<4;i++){
@@ -145,6 +178,7 @@ void MainWindow::init_layouts(void)
 void MainWindow::init_slots(){
     connect(this->jouer,SIGNAL(clicked()),this,SLOT(init_gameWindow()));
     connect(this->ajouter,SIGNAL(clicked()),this,SLOT(ajoute_joueur()));
+    connect(this->modifier,SIGNAL(clicked()),this,SLOT(modifier_carte()));
 }
 
 void MainWindow::affiche_joueurs(){
@@ -197,6 +231,36 @@ void MainWindow::ajoute_joueur(){
     this->getPlateau()->ajouteJoueur( Joueur(this->nom->text().toStdString(),genre) );
     this->affiche_joueurs();
 }
+
+void MainWindow::modifier_carte(){
+    QString valeur = this->cvaleur->currentText();
+    QString forme = this->cforme->currentText();
+    QString minijeu = this->cminijeu->currentText();
+
+    QFile file("../Jeu/JeuBoisson/environnement/cartes.txt");
+    QFile temp("../Jeu/JeuBoisson/environnement/TEMP_carte.txt");
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+    if(!temp.open(QIODevice::WriteOnly | QIODevice::Text))
+        return;
+    QTextStream in(&file);
+    QTextStream out(&temp);
+    while(!in.atEnd()){
+        QString line = in.readLine();
+        QStringList list = line.split(";");
+        if(list[0]==valeur && list[1]==forme){
+                out<<valeur+";"+forme+";"+minijeu+"\n";
+        }
+        else out << line+"\n";
+    }
+    file.close();
+    temp.close();
+    file.remove();
+    QFile::copy("../Jeu/JeuBoisson/environnement/TEMP_carte.txt","../Jeu/JeuBoisson/environnement/cartes.txt");
+
+
+}
+
 
 Plateau* MainWindow::getPlateau(){
     return this->plateau;

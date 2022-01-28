@@ -56,6 +56,10 @@ private:
     QPushButton* ajouter;
     QLineEdit* nom;
     QComboBox* sexe;
+    QComboBox* cvaleur;
+    QComboBox* cforme;
+    QComboBox* cminijeu;
+    QPushButton* modifier;
 
 
     QGridLayout* grid;
@@ -69,6 +73,7 @@ private:
 public slots:
     void init_gameWindow(void);
     void ajoute_joueur(void);
+    void modifier_carte(void);
 
 
 
