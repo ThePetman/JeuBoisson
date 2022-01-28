@@ -43,5 +43,20 @@ void familleMot::trouverPerdants(std::vector< std::string > liste)
 
 void familleMot::afficherTheme(std::vector< std::string > theme)
 {
-    std::cout << "le theme de ce round est : "<<  theme[rand() % theme.size()] << std::endl;
+    std::string themest = theme[rand() % theme.size()];
+    std::cout << "le theme de ce round est : "<< themest << std::endl;
 }
+
+void familleMot::afficherResultat(std::vector< int > perdant , std::string themest, std::vector< std::string > liste)
+{
+    std::cout << "le theme de ce round était : "<<  themest << std::endl;
+//    std::cout << "les participants ont répondus : "<<  liste << std::endl;
+//    std::cout << "Et les perdants sont les joueurs numéro : "<<  perdant << std::endl;
+}
+
+
+
+
+
+
+
