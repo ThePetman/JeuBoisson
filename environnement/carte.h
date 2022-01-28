@@ -10,16 +10,17 @@ class Carte
 private:
     int valeur;
     std::string forme;
-    MiniJeu minijeu;
+     std::string minijeu;
 
 
 public:
     Carte(int v,std::string f);
+    Carte(int v,std::string f,std::string m);
     Carte();
     int getValeur();
     std::string getForme();
-    MiniJeu getMiniJeu();
-    void setMiniJeu(MiniJeu m);
+    std::string getMiniJeu();
+    void setMiniJeu( std::string m);
 
     void initialiseMiniJeu();
     void affiche();

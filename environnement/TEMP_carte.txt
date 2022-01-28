@@ -1,4 +1,4 @@
-1;pique;none
+1;pique;3
 2;pique;2
 3;pique;3
 4;pique;4

@@ -216,6 +216,7 @@ void MainWindow::init_gameWindow(){
     g->plateau = this->getPlateau();
     g->init_joueurs();
     g->init_paquet();
+
     g->show();
 
 }

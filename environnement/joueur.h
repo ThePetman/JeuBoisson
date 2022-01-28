@@ -13,6 +13,8 @@ class Joueur
       std::string nom;
       Sexe genre;
       int gorgees;
+      int id ;
+      static int total;
   public:
       Joueur(std::string n, Sexe s);
       Joueur();
@@ -21,10 +23,14 @@ class Joueur
       Sexe getGenre();
       int getGorgees();
       void setNom(std::string n);
+      void setId(int i);
+      int getTotal();
 //      void setGenre(Sexe s);
 //      void setGorgee(int g );
 
       void incrementeGorgees();
+      void incrementeTotal();
+      int getId();
 
       void affiche();
 
@@ -33,5 +39,6 @@ class Joueur
 
 
 };
+
 
 #endif // JOUEUR_H

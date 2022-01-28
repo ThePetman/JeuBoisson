@@ -39,6 +39,7 @@
     QPushButton* tirer;
     QPushButton* lancer ;
     QLabel* infoJeu;
+    QLabel* infoJoueur;
     QLabel* carte;
     QVBoxLayout* vboxlayout;
     QHBoxLayout* hboxlayout;
@@ -50,6 +51,7 @@
 
   public slots:
     void choisir_carte(void);
+    void affiche_action(void);
 
 
 

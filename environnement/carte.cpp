@@ -10,6 +10,13 @@ Carte::Carte(int v,std::string f){
     this->forme=f;
 }
 
+Carte::Carte(int v,std::string f, std::string m){
+    this->valeur=v;
+    this->forme=f;
+    this->minijeu=m;
+}
+
+
 int Carte::getValeur(){
     return this->valeur;
 }
@@ -18,11 +25,11 @@ std::string Carte::getForme(){
     return this->forme;
 }
 
-MiniJeu Carte::getMiniJeu(){
+ std::string Carte::getMiniJeu(){
     return this->minijeu;
 }
 
-void Carte::setMiniJeu(MiniJeu m){
+void Carte::setMiniJeu( std::string m){
     this->minijeu = m;
 }
 
