@@ -68,7 +68,7 @@ void GameWindow::init_slots(){
 void GameWindow::init_joueurs(){
     this->gridlayout = new QGridLayout();
     this->haut->setLayout(gridlayout);
-    int taille = this->plateau->getListeJoueurs().size();
+    int taille = this->plateau->getListeJoueurs()->size();
     int c=1;
     for(int i =0; i<taille;i++){
 
@@ -83,9 +83,9 @@ void GameWindow::init_joueurs(){
         std::string numero = "Joueur " + std::to_string(i+1);
         QLabel* titre = new QLabel(QString::fromStdString(numero));
         layout->addWidget(titre);
-        QLabel* nom = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs().at(i).getNom()));
+        QLabel* nom = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs()->at(i).getNom()));
         layout->addWidget(nom);
-        QLabel* sexe = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs().at(i).stdGenre()));
+        QLabel* sexe = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs()->at(i).stdGenre()));
         layout->addWidget(sexe);
         widget->setLayout(layout);
         widget->setStyleSheet("background-color : red");
@@ -131,7 +131,7 @@ void GameWindow::choisir_carte(){
 void GameWindow::affiche_action(){
     std::string minijeu = this->plateau->getPaquet()->getCarteCourante().getMiniJeu();
     std::string forme = this->plateau->getPaquet()->getCarteCourante().getForme();
-    std::string joueur = "Joueur "+std::to_string(this->plateau->getJoueurCourrant().getId())+":";
+    std::string joueur = "Joueur "+std::to_string(this->plateau->getJoueurCourrant()->getId())+":";
     this->infoJoueur->setText(QString::fromStdString(joueur));
     if(minijeu=="none"){
         this->infoJeu->setText("Aucune action ce tour");

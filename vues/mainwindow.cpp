@@ -183,7 +183,7 @@ void MainWindow::init_slots(){
 
 void MainWindow::affiche_joueurs(){
 
-    int taille = this->plateau->getListeJoueurs().size();
+    int taille = this->plateau->getListeJoueurs()->size();
     std::cout<<taille<<std::endl;
 
     for (int i=0;i<taille ;i++ ) {
@@ -195,9 +195,9 @@ void MainWindow::affiche_joueurs(){
         std::string numero = "Joueur " + std::to_string(i+1);
         QLabel* titre = new QLabel(QString::fromStdString(numero));
         layout->addWidget(titre);
-        QLabel* nom = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs().at(i).getNom()));
+        QLabel* nom = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs()->at(i).getNom()));
         layout->addWidget(nom);
-        QLabel* sexe = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs().at(i).stdGenre()));
+        QLabel* sexe = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs()->at(i).stdGenre()));
         layout->addWidget(sexe);
         widget->setLayout(layout);
         widget->setStyleSheet("background-color : red");
@@ -210,7 +210,7 @@ void MainWindow::affiche_joueurs(){
 }
 
 void MainWindow::init_gameWindow(){
-    if(this->getPlateau()->getListeJoueurs().size()<2)
+    if(this->getPlateau()->getListeJoueurs()->size()<2)
         return;
     this->g = new GameWindow();
     g->plateau = this->getPlateau();
@@ -222,7 +222,7 @@ void MainWindow::init_gameWindow(){
 }
 
 void MainWindow::ajoute_joueur(){
-    if(this->nom->text().isEmpty()or this->getPlateau()->getListeJoueurs().size()==6)
+    if(this->nom->text().isEmpty()or this->getPlateau()->getListeJoueurs()->size()==6)
         return;
     Sexe genre;
     if (this->sexe->currentIndex()==0)
