@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
 QApplication a(argc, argv);
 
    MainWindow w = MainWindow();
-   JeuFamilleMot f = JeuFamilleMot();
-   f.show();
+//   JeuFamilleMot f = JeuFamilleMot(4);
+//   f.show();
 
 
 

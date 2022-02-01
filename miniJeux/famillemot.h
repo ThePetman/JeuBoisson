@@ -2,8 +2,10 @@
 #define FAMILLEMOT_H
 
 #include "rapidite.h"
+#include <cstdlib>
+#include <cstdlib>
 
-class familleMot
+class FamilleMot
 {
 private:
     std::vector< std::string > liste;
@@ -11,14 +13,17 @@ private:
     std::string themeCourant;
     std::vector< int > perdant;
     void creertheme();
+
 public:
-    familleMot();
+    FamilleMot();
     void ajouterMot(std::string  liste);
     void viderListe(std::vector< std::string > liste);
-
+    void setTheme(std::string  t);
     void afficherTheme();
     void trouverPerdants();
-    std::vector<int> afficherResultat(std::vector< int > perdant, std::string themest, std::vector< std::string > liste);
+    std::string getThemeCourant();
+    std::vector<int> afficherResultat();
+
 };
 
 #endif // FAMILLEMOT_H

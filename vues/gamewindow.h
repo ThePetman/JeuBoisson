@@ -2,6 +2,7 @@
 #define GAMEWINDOW_H
 
 #include "environnement/plateau.h"
+#include "jeufamillemot.h"
 
 #include <QMainWindow>
 #include <QHBoxLayout>
@@ -52,6 +53,7 @@
   public slots:
     void choisir_carte(void);
     void affiche_action(void);
+    void lancer_minijeu(void);
 
 
 

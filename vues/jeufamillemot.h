@@ -20,13 +20,17 @@
     Q_OBJECT
 
     public:
-    JeuFamilleMot();
+    JeuFamilleMot(int n);
+
     ~JeuFamilleMot();
     std::vector<Joueur>* listeJoueurs;
     void ajouteJoueur(Joueur* j);
     std::vector<Joueur>* listePerdants;
     std::vector<Joueur>* getListePerdant;
-    familleMot jeu;
+    FamilleMot* jeu;
+    void setTaille(int t);
+     int getCompteur();
+      int getTaille();
 
 
   private:
@@ -37,9 +41,15 @@
     QLineEdit* saisie;
     QVBoxLayout* vboxlayout;
 
+    int taille;
+    int compteur;
+
     void init_components(void);
     void init_layouts(void);
     void init_slots(void);
+    void affiche_resultat(void);
+  public slots:
+    void ajoute_mot(void);
 
 
 

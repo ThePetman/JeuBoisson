@@ -63,6 +63,7 @@ void GameWindow::init_layouts(){
 void GameWindow::init_slots(){
     connect(this->tirer, SIGNAL(clicked()),this,SLOT(choisir_carte()));
     connect(this->tirer, SIGNAL(clicked()),this,SLOT(affiche_action()));
+    connect(this->lancer, SIGNAL(clicked()),this,SLOT(lancer_minijeu()));
 }
 
 void GameWindow::init_joueurs(){
@@ -118,6 +119,17 @@ void GameWindow::choisir_carte(){
 
 }
 
+void GameWindow::lancer_minijeu(){
+    std::string minijeu = this->plateau->getPaquet()->getCarteCourante().getMiniJeu();
+    if(minijeu=="none"){
+        this->infoJeu->setText("Aucune action ce tour");
+    }else if(minijeu=="famillemot"){
+        JeuFamilleMot* j = new JeuFamilleMot(this->plateau->getListeJoueurs()->size());
+        j->show();
+    }
+}
+
+
 void GameWindow::affiche_action(){
     std::string minijeu = this->plateau->getPaquet()->getCarteCourante().getMiniJeu();
     std::string forme = this->plateau->getPaquet()->getCarteCourante().getForme();
@@ -125,6 +137,8 @@ void GameWindow::affiche_action(){
     this->infoJoueur->setText(QString::fromStdString(joueur));
     if(minijeu=="none"){
         this->infoJeu->setText("Aucune action ce tour");
+    }else if(minijeu=="famillemot"){
+        this->infoJeu->setText("MiniJeu Famille de Mot");
     }else if (minijeu =="1"){
         if(forme=="careau" || forme =="coeur")
             this->infoJeu->setText("Distribue 1 gorgee");
