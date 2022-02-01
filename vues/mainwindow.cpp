@@ -62,7 +62,9 @@ void MainWindow::init_components(void){
     this->cminijeu->addItem("none");
     this->cminijeu->addItem("1");
     this->cminijeu->addItem("2");
-    this->cminijeu->addItem("3");
+    this->cminijeu->addItem("famillemot");
+    this->cminijeu->addItem("rapidite");
+
 
      this->modifier = new QPushButton("Modifier la carte");
 
@@ -194,6 +196,7 @@ void MainWindow::ajoute_joueur(){
          genre = Femme;
     this->getPlateau()->ajouteJoueur( Joueur(this->nom->text().toStdString(),genre) );
     this->affiche_joueurs();
+    this->nom->clear();
 }
 
 void MainWindow::modifier_carte(){

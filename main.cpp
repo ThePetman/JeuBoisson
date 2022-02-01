@@ -3,7 +3,7 @@
 #include "environnement\carte.h"
 #include "environnement/joueur.h"
 #include "miniJeux/rapidite.h"
-#include "vues/jeufamillemot.h"
+#include "vues/jeurapidite.h"
 
 #include <QApplication>
 
@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 QApplication a(argc, argv);
 
    MainWindow w = MainWindow();
-//   JeuFamilleMot f = JeuFamilleMot(4);
+//   JeuRapidite f = JeuRapidite();
 //   f.show();
 
 

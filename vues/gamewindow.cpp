@@ -121,8 +121,9 @@ void GameWindow::choisir_carte(){
 
 void GameWindow::lancer_minijeu(){
     std::string minijeu = this->plateau->getPaquet()->getCarteCourante().getMiniJeu();
-    if(minijeu=="none"){
-        this->infoJeu->setText("Aucune action ce tour");
+    if(minijeu=="rapidite"){
+        JeuRapidite* j = new JeuRapidite();
+        j->show();
     }else if(minijeu=="famillemot"){
         JeuFamilleMot* j = new JeuFamilleMot(this->plateau->getListeJoueurs()->size());
         j->show();
@@ -139,6 +140,8 @@ void GameWindow::affiche_action(){
         this->infoJeu->setText("Aucune action ce tour");
     }else if(minijeu=="famillemot"){
         this->infoJeu->setText("MiniJeu Famille de Mot");
+    }else if(minijeu=="rapidite"){
+        this->infoJeu->setText("MiniJeu de rapidite");
     }else if (minijeu =="1"){
         if(forme=="careau" || forme =="coeur")
             this->infoJeu->setText("Distribue 1 gorgee");

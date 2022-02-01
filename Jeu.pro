@@ -17,6 +17,7 @@ SOURCES += \
     miniJeux/memory.cpp \
     vues/gamewindow.cpp \
     vues/jeufamillemot.cpp \
+    vues/jeurapidite.cpp \
     vues/mainwindow.cpp \
     miniJeux/famillemot.cpp \
     miniJeux/rapidite.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     miniJeux/memory.h \
     vues/gamewindow.h \
     vues/jeufamillemot.h \
+    vues/jeurapidite.h \
     vues/mainwindow.h \
     miniJeux/famillemot.h \
     miniJeux/rapidite.h \

@@ -1,20 +1,24 @@
 #include "rapidite.h"
 
+Rapidite::Rapidite(){
+    this->setTempsallouer(20);
+}
+
 void Rapidite::setTempsallouer(int a)
 {
     this->tempsallouer = a;
 }
 
-void Rapidite::recopierPhrase()
+void Rapidite::recopierPhrase(std::string p)
 {
-    std::cout << "Recopiez cette phrase : “Je voudrais rassurer les peuples qui meurent de faim dans le monde : ici, on mange pour vous.”  "<< std::endl;
-    std::cin >> this->phrase;
+
+    this->phrase = p;
 }
 
 int Rapidite::testerPhrase()
 {
     std::string bphrase = "Je voudrais rassurer les peuples qui meurent de faim dans le monde : ici, on mange pour vous.";
-    if(phrase.compare(bphrase) == 0){
+    if(this->phrase.compare(bphrase) == 0){
             return 0;
     }
     else
@@ -23,7 +27,7 @@ int Rapidite::testerPhrase()
 
 int Rapidite::timing(int tempstotal)
 {
-    if(tempstotal <= tempsallouer)
+    if(tempstotal <= this->tempsallouer)
         return 0;
     else
         return 1;
@@ -31,15 +35,16 @@ int Rapidite::timing(int tempstotal)
 
 void Rapidite::debutTimer()
 {
+    std::cout << "Bravo vous avez gagné !"<< std::endl;
     this->tempsdebut = QTime::currentTime();
 }
 
 int Rapidite::finTimer()
 {
     QTime tempsfin = QTime::currentTime();
-    int dsecondes = tempsdebut.second();
-    int dminutes = tempsdebut.minute();
-    int dheures = tempsdebut.hour();
+    int dsecondes = this->tempsdebut.second();
+    int dminutes = this->tempsdebut.minute();
+    int dheures = this->tempsdebut.hour();
     int fsecondes = tempsfin.second();
     int fminutes = tempsfin.minute();
     int fheures = tempsfin.hour();

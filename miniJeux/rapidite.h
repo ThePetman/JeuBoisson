@@ -16,13 +16,13 @@ protected:
     std::string phrase;
 
 public:
-
+    Rapidite();
     void setTempsallouer(int a);
 
     int finTimer();
     void debutTimer();
 
-    void recopierPhrase();
+    void recopierPhrase(std::string p);
 
     int testerPhrase();
     int timing(int tempstotal);

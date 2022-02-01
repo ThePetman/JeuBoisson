@@ -3,6 +3,7 @@
 
 #include "environnement/plateau.h"
 #include "jeufamillemot.h"
+#include "jeurapidite.h"
 
 #include <QMainWindow>
 #include <QHBoxLayout>
