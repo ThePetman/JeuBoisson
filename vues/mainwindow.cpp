@@ -137,43 +137,6 @@ void MainWindow::init_layouts(void)
 
 
 }
-/*void MainWindow::init_cartes(){
-    for(int i=0;i<4;i++){
-        for(int j =1;j<14;j++){
-            QString valeur;
-            QComboBox* minijeu = new QComboBox();
-            minijeu->addItem("None");
-            minijeu->addItem("1");
-            minijeu->addItem("2");
-            minijeu->addItem("3");
-            minijeu->addItem("4");
-            minijeu->addItem("5");
-            minijeu->addItem("6");
-
-            switch(i){
-            case 0:
-                valeur = QString::number(j) + " de pique";
-                this->layoutcartes1->addRow(valeur,minijeu);
-                break;
-            case 1:
-                valeur = QString::number(j) + " de coeur";
-                this->layoutcartes1->addRow(valeur,minijeu);
-                break;
-            case 2:
-                valeur = QString::number(j) + " de trefle";
-                this->layoutcartes2->addRow(valeur,minijeu);
-                break;
-            case 3:
-                valeur = QString::number(j) + " de carreau";
-                this->layoutcartes2->addRow(valeur,minijeu);
-                break;
-            }
-        }
-    }
-
-
-}*/
-
 
 void MainWindow::init_slots(){
     connect(this->jouer,SIGNAL(clicked()),this,SLOT(init_gameWindow()));
