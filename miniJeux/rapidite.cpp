@@ -1,28 +1,62 @@
 #include "rapidite.h"
 
-Rapidite::Rapidite()
+void Rapidite::setTempsallouer(int a)
 {
-    QTime tempsseuil = QTime::currentTime();
-    tempsseuil = tempsseuil.addSecs(20);
+    this->tempsallouer = a;
+}
 
-    std::string phrase;
-    std::string bphrase = "Je voudrais rassurer les peuples qui meurent de faim dans le monde : ici, on mange pour vous.";
-
+void Rapidite::recopierPhrase()
+{
     std::cout << "Recopiez cette phrase : “Je voudrais rassurer les peuples qui meurent de faim dans le monde : ici, on mange pour vous.”  "<< std::endl;
-    std::cin >> phrase;
+    std::cin >> this->phrase;
+}
 
-    while(phrase.compare(bphrase) != 0){
-        std::cout << "Mauvaise phrase ! Réessayer : “Je voudrais rassurer les peuples qui meurent de faim dans le monde : ici, on mange pour vous.”  " << std::endl;
-        std::cin >> phrase;
+int Rapidite::testerPhrase()
+{
+    std::string bphrase = "Je voudrais rassurer les peuples qui meurent de faim dans le monde : ici, on mange pour vous.";
+    if(phrase.compare(bphrase) == 0){
+            return 0;
     }
+    else
+        return 1;
+}
 
-    QTime tempsactuel = QTime::currentTime();
+int Rapidite::timing(int tempstotal)
+{
+    if(tempstotal <= tempsallouer)
+        return 0;
+    else
+        return 1;
+}
 
-    if(tempsactuel <= tempsseuil){
-        std::cout << "Bravo, vous avez gagné ! Tous les autres participent boivent une gorgée." << std::endl;
+void Rapidite::debutTimer()
+{
+    this->tempsdebut = QTime::currentTime();
+}
+
+int Rapidite::finTimer()
+{
+    QTime tempsfin = QTime::currentTime();
+    int dsecondes = tempsdebut.second();
+    int dminutes = tempsdebut.minute();
+    int dheures = tempsdebut.hour();
+    int fsecondes = tempsfin.second();
+    int fminutes = tempsfin.minute();
+    int fheures = tempsfin.hour();
+    int tempstotal = ((fheures-dheures)*3600)+((fminutes-dminutes)*60)+(fsecondes-dsecondes);
+    return tempstotal;
+}
+
+int Rapidite::afficherResultat(int timing, int testerphrase)
+{
+    if(timing == 0 && testerphrase == 0){
+        std::cout << "Bravo vous avez gagné !"<< std::endl;
+        return 0;
     }
-    else{
-        std::cout << "Vous avez perdu ! Vous buvez deux gorgées !" << std::endl;
+    else
+    {
+        std::cout << "Oups, perdus !"<< std::endl;
+        return 1;
     }
 }
 

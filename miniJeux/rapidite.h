@@ -11,9 +11,23 @@ class Rapidite
 {
 protected:
 
-public:
-    Rapidite();
-};
+    int tempsallouer;
+    QTime tempsdebut;
+    std::string phrase;
 
+public:
+
+    void setTempsallouer(int a);
+
+    int finTimer();
+    void debutTimer();
+
+    void recopierPhrase();
+
+    int testerPhrase();
+    int timing(int tempstotal);
+
+    int afficherResultat(int timing, int testerphrase);
+};
 
 #endif
