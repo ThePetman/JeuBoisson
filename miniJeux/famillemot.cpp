@@ -47,11 +47,18 @@ void familleMot::afficherTheme(std::vector< std::string > theme)
     std::cout << "le theme de ce round est : "<< themest << std::endl;
 }
 
-void familleMot::afficherResultat(std::vector< int > perdant , std::string themest, std::vector< std::string > liste)
+std::vector<int> familleMot::afficherResultat(std::vector< int > perdant , std::string themest, std::vector< std::string > liste)
 {
+    int x = liste.size();
+    int y = perdant.size();
     std::cout << "le theme de ce round était : "<<  themest << std::endl;
-//    std::cout << "les participants ont répondus : "<<  liste << std::endl;
-//    std::cout << "Et les perdants sont les joueurs numéro : "<<  perdant << std::endl;
+    for ( int i = 0 ; i < x ; i++){
+        std::cout << "le participant numéro " << x << " a répondus : " << liste[x] << std::endl;
+    }
+    for ( int i = 0 ; i < y ; i++){
+        std::cout  << "le joueur numéro " <<  perdant[y] << " a perdus" << std::endl;
+    }
+    return perdant;
 }
 
 

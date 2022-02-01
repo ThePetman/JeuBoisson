@@ -14,6 +14,7 @@ SOURCES += \
     environnement/paquet.cpp \
     environnement/plateau.cpp \
     main.cpp \
+    miniJeux/memory.cpp \
     vues/gamewindow.cpp \
     vues/mainwindow.cpp \
     miniJeux/famillemot.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     environnement/joueur.h \
     environnement/paquet.h \
     environnement/plateau.h \
+    miniJeux/memory.h \
     vues/gamewindow.h \
     vues/mainwindow.h \
     miniJeux/famillemot.h \
