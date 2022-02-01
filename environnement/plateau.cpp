@@ -41,10 +41,9 @@ void Plateau::setJoueurCourrant(Joueur* j){
 }
 
 void Plateau::joueur_suivant(){
-    std::cout<<"test"<<std::endl;
+
     int taille = this->getNbJoueur()-1;
-    std::cout<<taille<<std::endl;
-    std::cout<<this->compteur<<std::endl;
+
 
     if(this->compteur==taille){
         this->setJoueurCourrant(&this->getListeJoueurs()->at(this->compteur));

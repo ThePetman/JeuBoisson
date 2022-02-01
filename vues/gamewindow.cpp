@@ -72,8 +72,7 @@ void GameWindow::init_joueurs(){
     int c=1;
     for(int i =0; i<taille;i++){
 
-//        this->plateau->getListeJoueurs().at(i).setId(c);
-//        std::cout<<this->plateau->getListeJoueurs().at(i).getId();
+
 
         QWidget* widget = new QWidget();
         QVBoxLayout* layout = new QVBoxLayout();
@@ -105,15 +104,6 @@ void GameWindow::init_paquet(){
     }
     file.close();
 
-
-
-//    std::cout<<"test"<<std::endl;
-//    for(int i =1;i<14;i++){
-//        this->plateau->getPaquet()->ajouteCarte(Carte(i,"trefle"));
-//        this->plateau->getPaquet()->ajouteCarte(Carte(i,"pique"));
-//        this->plateau->getPaquet()->ajouteCarte(Carte(i,"coeur"));
-//        this->plateau->getPaquet()->ajouteCarte(Carte(i,"carreau"));
-//    }
     this->plateau->getPaquet()->melangePaquet();
     this->plateau->getPaquet()->affiche();
 
