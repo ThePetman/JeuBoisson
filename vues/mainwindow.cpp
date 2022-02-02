@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     this->init_components();
     this->init_layouts();
     this->init_slots();
+    //this->setStyleSheet("background-image: url(../bar.jpg);");
+    this->setStyleSheet("background-color: #080330");
 
     this->plateau = new Plateau();
 }
@@ -16,18 +18,20 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
 void MainWindow::init_components(void){
     this->centre = new QWidget();
     this->droite = new QWidget();
-    droite->setStyleSheet("background-color : yellow");
+    droite->setStyleSheet("background-color : #1F1667");
     this->gauche = new QWidget();
-    gauche->setStyleSheet("background-color : red");
+    gauche->setStyleSheet("background-color : #1F1667");
     this->gauche1 = new QWidget();
-    gauche1->setStyleSheet("background-color : white");
+    gauche1->setStyleSheet("background-image: url(../regle_415x460.jpg);");
+    //gauche1->setStyleSheet("background-color : #7867F6");
     this->gauche2 = new QWidget();
-    gauche2->setStyleSheet("background-color : white");
+    gauche2->setStyleSheet("background-color : #7867F6");
     this->haut = new QWidget();
-    haut->setStyleSheet("background-color : pink");
+    haut->setStyleSheet("background-color : #7867F6");
     this->milieu = new QWidget();
-    milieu->setStyleSheet("background-color : green");
+    milieu->setStyleSheet("background-color : #7867F6");
     this->jouer = new QPushButton("Jouer");
+    jouer->setStyleSheet("color : white");
 
     this->ajouter = new QPushButton("Ajouter le joueur");
     QSize BUTTON_SIZE = QSize(172, 22);
@@ -165,7 +169,7 @@ void MainWindow::affiche_joueurs(){
         QLabel* sexe = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs()->at(i).stdGenre()));
         layout->addWidget(sexe);
         widget->setLayout(layout);
-        widget->setStyleSheet("background-color : red");
+        widget->setStyleSheet("background-color : #463C96");
         if(i<3){
             grid->addWidget(widget,0,i);
         }else{

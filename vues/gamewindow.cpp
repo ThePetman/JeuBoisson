@@ -8,6 +8,8 @@ GameWindow::GameWindow(QWidget *parent): QMainWindow(parent)
     this->init_components();
     this->init_layouts();
     this->init_slots();
+    //this->setStyleSheet("background-image: url(../bar.jpg);");
+    this->setStyleSheet("background-color: #080330");
 
 
 }
@@ -15,12 +17,13 @@ GameWindow::GameWindow(QWidget *parent): QMainWindow(parent)
 void GameWindow::init_components(){
     this->centre = new QWidget();
     this->haut = new QWidget();
-    haut->setStyleSheet("background-color : yellow");
+    haut->setStyleSheet("background-color : #1F1667");
     this->milieu = new QWidget();
-    milieu->setStyleSheet("background-color : red");
+    milieu->setStyleSheet("background-color : #463C96");
     this->carte = new QLabel();
+    carte->setStyleSheet("color : white");
     this->bas = new QWidget();
-    bas->setStyleSheet("background-color : green");
+    bas->setStyleSheet("background-color : #7867F6");
 
     this->lancer = new QPushButton("Lancer le minijeu");
     this->tirer = new QPushButton("Tirer une carte");
@@ -88,13 +91,13 @@ void GameWindow::init_joueurs(){
         QLabel* sexe = new QLabel(QString::fromStdString(this->plateau->getListeJoueurs()->at(i).stdGenre()));
         layout->addWidget(sexe);
         widget->setLayout(layout);
-        widget->setStyleSheet("background-color : red");
+        widget->setStyleSheet("background-color : #463C96");
         gridlayout->addWidget(widget,0,i);
         c++;
     }
 }
 void GameWindow::init_paquet(){
-    QFile file("../Jeu/JeuBoisson/environnement/cartes.txt");
+    QFile file("../JeuBoisson/environnement/cartes.txt");
     if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
     QTextStream in(&file);
