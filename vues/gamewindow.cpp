@@ -97,7 +97,7 @@ void GameWindow::init_joueurs(){
     }
 }
 void GameWindow::init_paquet(){
-    QFile file("../JeuBoisson/environnement/cartes.txt");
+    QFile file("../Jeu/JeuBoisson/environnement/cartes.txt");
     if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
     QTextStream in(&file);
@@ -155,6 +155,16 @@ void GameWindow::affiche_action(){
             this->infoJeu->setText("Distribue 2 gorgee");
         else
             this->infoJeu->setText("Bois 2 gorgee");
+    }else if (minijeu =="3"){
+        if(forme=="careau" || forme =="coeur")
+            this->infoJeu->setText("Distribue 3 gorgee");
+        else
+            this->infoJeu->setText("Bois 3 gorgee");
+    }else if (minijeu =="4"){
+        if(forme=="careau" || forme =="coeur")
+            this->infoJeu->setText("Distribue 4 gorgee");
+        else
+            this->infoJeu->setText("Bois 4 gorgee");
     }
 }
 

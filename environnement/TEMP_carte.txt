@@ -1,7 +1,7 @@
-1;pique;rapidite
-2;pique;famillemot
-3;pique;famillemot
-4;pique;famillemot
+1;pique;none
+2;pique;2
+3;pique;3
+4;pique;4
 5;pique;famillemot
 6;pique;famillemot
 7;pique;famillemot
@@ -11,10 +11,10 @@
 11;pique;famillemot
 12;pique;famillemot
 13;pique;famillemot
-1;coeur;none
+1;coeur;1
 2;coeur;2
 3;coeur;3
-4;coeur;famillemot
+4;coeur;4
 5;coeur;famillemot
 6;coeur;famillemot
 7;coeur;famillemot
@@ -27,7 +27,7 @@
 1;trefle;1
 2;trefle;2
 3;trefle;3
-4;trefle;rapidite
+4;trefle;4
 5;trefle;rapidite
 6;trefle;rapidite
 7;trefle;rapidite
@@ -39,8 +39,8 @@
 13;trefle;2
 1;careau;1
 2;careau;2
-3;careau;rapidite
-4;careau;rapidite
+3;careau;3
+4;careau;4
 5;careau;rapidite
 6;careau;rapidite
 7;careau;1

@@ -66,6 +66,8 @@ void MainWindow::init_components(void){
     this->cminijeu->addItem("none");
     this->cminijeu->addItem("1");
     this->cminijeu->addItem("2");
+    this->cminijeu->addItem("3");
+    this->cminijeu->addItem("4");
     this->cminijeu->addItem("famillemot");
     this->cminijeu->addItem("rapidite");
 
